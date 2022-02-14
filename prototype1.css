@@ -1,0 +1,93 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    background-color: white;
+}
+
+.header {
+    height: 200px;
+    background-image: url("images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    color: white;
+}
+
+.header h1 {
+    font-size: 100px;
+}
+
+.header h2 {
+    font-size: 50px;
+}
+
+.feature {
+    background-color: white;
+    padding: 10px;
+}
+
+.image {
+    background-color: white;
+    padding: 10px;
+}
+
+.hide {
+    display: block;
+}
+
+.show {
+    display: none;
+}
+
+#footer {
+    background-color: beige;
+    color: black;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.row .col img {
+    width: 100%;
+}
+
+.container-color {
+    background-color: white;
+}
+
+.btn-color {
+    background-color: white;
+}
+
+.team-col {
+    padding: 10px;
+}
+
+.nav-color {
+    background-color: white;
+}
+
+@media(min-width: 767px) {
+    .feature {
+        background-color: white;
+        padding: 10px;
+    }
+    
+    .image {
+        background-color: white;
+        padding: 10px;
+    }
+}
+@media(min-width: 992px) {
+    .feature {
+        background-color: white;
+        padding: 10px;
+    }
+    
+    .image {
+        background-color: white;
+        padding: 10px;
+    }
+}
