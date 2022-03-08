@@ -10,7 +10,22 @@
     <link rel="stylesheet" href="prototype1.css">
     <title>CURB</title>
   </head>
-  <body>
+  <style>
+    .filterDiv{
+      display: none;
+      float: left;
+      margin: 15px;
+      width: 400px;
+
+    } 
+    
+    .show {
+      display: block;
+    }
+    
+
+  </style>
+  <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-md navbar-light nav-color">
       <div class="container-fluid nav-color">
           <a class="navbar-brand" href="#">CURB</a>
@@ -42,11 +57,15 @@
       </div>
     
       <div class="d-flex justify-content-between mt-3" role="group">
-          <button type="button" class="btn btn-info">Furnitures</button>
-          <button type="button" class="btn btn-info">Textbooks</button>
-          <button type="button" class="btn btn-info">Clothes</button>
-          <button type="button" class="btn btn-info">Appliances</button>
-          <div class="dropdown">
+        <div id="myBtnContainer">
+          <button type="button" class="btn btn-dark btn-info" onclick="filterSelection('all')">All</button>
+          <button type="button" class="btn btn-info" onclick="filterSelection('furniture')">Furnitures</button>
+          <button type="button" class="btn btn-info" onclick="filterSelection('textbook')">Textbooks</button>
+          <button type="button" class="btn btn-info" onclick="filterSelection('clothes')">Clothes</button>
+          <button type="button" class="btn btn-info" onclick="filterSelection('appliance')">Appliances</button>
+        </div>
+        
+        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Start date
             </button>
@@ -86,17 +105,18 @@
           </div>
       </div>
 
-      <div class="row mt-3">
-          <div class="col-md-4">
+      <!-- <div class="row mt-3"> -->
+          <div class="col-md-4 filterDiv appliance">
             <div class="thumbnail">
               <a href="">
-                <img src="images/guitar.jpeg" alt="Lights" style="width:100%">
+                <img src="images/guitar.jpeg" alt="guitar" style="width:100%">
               </a>
             </div>
             <div class="text-center">acoustic guitar</div>
             <img class="mt-2" src="images/heart.png" alt="favorite" style="width:10%">
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-4 filterDiv furniture">
             <div class="thumbnail">
               <a href="product.html">
                 <img src="images/pigcouch.jpeg" alt="Nature" style="width:100%">
@@ -105,7 +125,8 @@
             <div class="text-center">piggy couch</div>
             <img class="mt-2" src="images/fullheart.png" alt="favorite" style="width:10%">
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-4 filterDiv textbook">
             <div class="thumbnail">
               <a href="">
                 <img src="images/lab_notebook.jpeg" alt="labnotebook" style="width:100%">
@@ -114,10 +135,10 @@
             <div class="text-center">unused lab notebook</div>
             <img class="mt-2" src="images/fullheart.png" alt="favorite" style="width:10%">
           </div>
-      </div>
+      <!-- </div> -->
 
-      <div class="row mt-4">
-          <div class="col-md-4">
+      <!-- <div class="row mt-4"> -->
+          <div class="col-md-4 filterDiv appliance">
             <div class="thumbnail">
               <a href="">
                 <img src="images/yogamat.jpeg" alt="Lights" style="width:100%">
@@ -126,7 +147,8 @@
             <div class="text-center">yoga mat</div>
             <img class="mt-2" src="images/fullheart.png" alt="favorite" style="width:10%">
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-4 filterDiv clothes">
             <div class="thumbnail">
               <a href="">
                 <img src="images/grey_pants.jpeg" alt="Nature" style="width:100%">
@@ -135,7 +157,8 @@
             <div class="text-center">men's pants</div>
             <img class="mt-2" src="images/heart.png" alt="favorite" style="width:10%">
           </div>
-          <div class="col-md-4">
+
+          <div class="col-md-4 filterDiv appliance">
             <div class="thumbnail">
               <a href="">
                 <img src="images/airfryer.jpeg" alt="Fjords" style="width:100%">
@@ -144,11 +167,13 @@
             <div class="text-center">airfryer</div>
             <img class="mt-2" src="images/heart.png" alt="favorite" style="width:10%">
           </div>
-      </div>
+      <!-- </div> -->
 
       
     </div>
-    <div id="footer" class="sticky-bottom">
+    <div style="clear:both;"></div>
+
+    <div id="footer" class="mt-auto">
       Free stuff.
     </div>
         <!-- Optional JavaScript; choose one of the two! -->
@@ -161,6 +186,57 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
-
+    <script>
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        console.log("filtering for",c);
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          console.log("in loop ",i);
+          if (x[i].className.indexOf(c) > -1) {
+            w3AddClass(x[i], "show");
+            console.log("in if ",x[i]);
+          }
+        }
+      }
+      
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+      }
+      
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        console.log("removing class", arr1,arr2);
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+            console.log("removing",arr2[i]);    
+          }
+        }
+        element.className = arr1.join(" ");
+        console.log("after name", element.className)
+      }
+      
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+          var current = document.getElementsByClassName("btn-dark");
+          current[0].className = current[0].className.replace(" btn-dark", "");
+          this.className += " btn-dark";
+        });
+      }
+    </script>
   </body>
 </html>
