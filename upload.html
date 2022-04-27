@@ -28,41 +28,43 @@
 
                     <div class="form-group">
                       <label for="name">Name</label>
-                      <input class="form-control" id="Name">
+                      <input class="form-control" id="itemName">
                     </div>
 
                     <div class="form-group">
                       <label for="location">Location</label>
-                      <input class="form-control" id="Location">
+                      <input class="form-control" id="itemLocation">
                     </div>
 
                     <div class="form-group">
                       <label for="Description">Description</label>
-                      <textarea class="form-control" id="Description" rows="3"></textarea>
+                      <textarea class="form-control" id="itemDescription" rows="3"></textarea>
                     </div>
 
                     <div>
                       <label for="categories">Category:</label>
-                      <select name="category" id="categories">
-                        <option value="Furniture">Furniture</option>
-                        <option value="Textbooks">Textbooks</option>
-                        <option value="Clothes">Clothes</option>
-                        <option value="Appliances">Appliances</option>
+                      <select name="category" id="itemCategory">
+                        <option value="furniture">furniture</option>
+                        <option value="textbook">textbook</option>
+                        <option value="clothes">clothes</option>
+                        <option value="appliance">appliance</option>
                       </select>
                     </div>
 
                     <div>
-                      <label for="date-filter">Give date:</label>
-                      <input type="date" id="give-date" name="give-date">
+                      <label for="date-filter">Pick up by:</label>
+                      <input type="date" id="itemGiveDate" name="give-date">
                     </div>
 
                     <div>
                       <label for="image">Image: </label>
-                      <input type="file" class="form-control-file" id="image">
+                      <input type="file" class="form-control-file" id="itemImage">
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button" onclick="login()">Submit</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="button" onclick="uploadItem()">Submit</button>
+                      <a href="index.html"><button class="btn btn-info bg-transparent btn-lg btn-block" type="button" onclick="uploadItem()">Cancel</button></a>
+
                     </div>
                   </form>
   

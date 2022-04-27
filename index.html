@@ -26,6 +26,9 @@
     
 
   </style>
+
+<script src="register.js"></script>
+
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-md navbar-light nav-color">
       <div class="container-fluid nav-color">
@@ -45,8 +48,6 @@
     <div class="container-fluid">
       <div class="row ">
           <div class="col text-center header">
-              <h1>CURB</h1>
-              <h2>Give for free</h2>
           </div>
       </div>
     </div>
@@ -74,7 +75,10 @@
         </div>
       </div>
 
-      
+      <div class="mt-2">
+        <a href="upload.html"><button type="button" class="btn btn-info">Upload an item</button></a>
+      </div>
+
 
       <!-- <div class="row mt-3"> -->
           <div class="col-md-4 filterDiv appliance">
@@ -84,7 +88,9 @@
               </a>
             </div>
             <div class="text-center">acoustic guitar</div>
-            <img class="mt-2" src="images/heart.png" alt="favorite" style="width:10%">
+            <!-- <img class="mt-2" src="images/heart.png" alt="favorite" style="width:10%"> -->
+            <img class="mt-2" src="images/heart.png" 
+            style="width:10%" id="heart" onclick="changeHeart()"/>
           </div>
 
           <div class="col-md-4 filterDiv furniture">

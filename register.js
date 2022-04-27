@@ -100,6 +100,26 @@ function login(){
     })
 }
 
+function uploadItem(){
+    itemName = document.getElementById('itemName').value;
+    itemLocation = document.getElementById('itemLocation').value;
+    itemDescription = document.getElementById('itemDescription').value;
+    itemCategory = document.getElementById('itemCategory').value;
+    itemGiveDate = document.getElementById('itemGiveDate').value;
+    //itemImage = document.getElementById('name').value;
+    
+    //Create item data
+    let item_data ={
+        itemName : itemName,
+        itemLocation : itemLocation,
+        itemDescription : itemDescription,
+        itemCategory : itemCategory,
+        itemGiveDate : itemGiveDate
+    }
+    let itemRef = database.ref("items").child;
+    itemRef.set(item_data);
+}
+
 function validate_field(field){
     if (field == null || field.length <= 0){
         return false;
@@ -107,4 +127,15 @@ function validate_field(field){
     else{
         return true;
     }
+}
+
+function changeHeart(){
+    console.log("in change heart")
+    if (document.getElementById("heart").src == "images/heart.png"){
+        console.log("empty to full")
+        document.getElementById("heart").src = "images/fullheart.png";
+    } 
+    // else {
+    //     document.getElementById("heart").src = "http://www.userinterfaceicons.com/80x80/minimize.png";
+    // }
 }

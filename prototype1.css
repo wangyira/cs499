@@ -6,12 +6,11 @@ html, body {
 }
 
 .header {
-    height: 200px;
-    background-image: url("images/background.jpeg");
+    height: 400px;
+    background-image: url("images/newbackground.png");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    background-position: center top;
-    color: white;
 }
 
 .header h1 {
